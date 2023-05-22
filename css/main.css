@@ -12,7 +12,7 @@
 :root {
   --black: #141414;
   --index: calc(1vw + 1vh);
-  --transition: 1.0s ease-in;
+  --transition: .75s ease-in;
 }
 
 body {
@@ -29,11 +29,15 @@ body {
   display: block;
   text-decoration: none;
   color: var(--black);
-  /*cursor: none;*/
+  cursor: none;
   line-height: .9;
   padding:  calc(var(--index) * 3) calc(var(--index) * 7.25);
   border-bottom: 2px solid rgb(0 0 0 / .1);
   counter-increment: my-counter;
+}
+
+.magic-list__item:first-child {
+  border-top: 2px solid var(--black);
 }
 
 .magic-list__item::before {
@@ -44,14 +48,34 @@ body {
   margin-left: calc(var(--index) * -2);
   margin-top: calc(var(--index) / 1.8);
   transition: transform var(--transition);
+  transition-delay: 0.02s;
+  will-change: transform;
 }
 
 .magic-list__header {
   width: min-content;
   transition: transform var(--transition);
+  will-change: transform;
 }
 
 .magic-list__item:hover .magic-list__header,
 .magic-list__item:hover::before {
   transform: translate3d(calc(var(--index) * -4), 0, 0);
+}
+
+.cursor {
+  position:fixed;
+  --width: calc(var(--index) * 22);
+  --height: calc(var(--index) * 14);
+  width: var(--width);
+  height: var(--height);
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.cursor__image {
+  position:relative;
+  width: calc(var(--width) * 2);
+  height: calc(var(--height) * 2);
 }
