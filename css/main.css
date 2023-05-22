@@ -6,9 +6,44 @@
 
 @font-face {
   font-family: arsenal;
-  src: url('../fonts/arsenal-regular.woff2');
+  src: url(../fonts/arsenal-regular.woff2);
+}
+
+:root {
+  --black: #141414;
+  --index: calc(1vw + 1vh);
 }
 
 body {
   font-family: arsenal, sans-serif;
+  background-color: #f0f0f0;
+}
+
+.magic-list {
+  font-size: calc(var(--index) * 2.75);
+  padding: calc(var(--index) * 2.25);
+}
+
+.magic-list__item {
+  display: block;
+  text-decoration: none;
+  color: var(--black);
+  cursor: none;
+  line-height: .9;
+  padding:  calc(var(--index) * 3) calc(var(--index) * 7.25);
+  border-bottom: 2px solid rgb(0 0 0 / .1);
+  counter-increment: my-counter;
+}
+
+.magic-list__item::before {
+  content: '(0'counter(my-counter)')';
+  position: absolute;
+  font-size: calc(var(--index) * .98);
+  letter-spacing: 1px;
+  margin-left: calc(var(--index) * -2);
+  margin-top: calc(var(--index) / 1.8);
+}
+
+.magic-list__header {
+  width: min-content;
 }
