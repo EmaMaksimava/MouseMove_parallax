@@ -96,3 +96,20 @@ body {
 .magic-list__item:hover .cursor {
   height: var(--height);
 }
+
+footer {
+  padding: 2vh 4vw;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.author {
+  text-decoration: none;
+  font-size: calc(var(--index) * .8);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--black);
+  text-shadow: 1px 1px 2px #00000070;
+  font-weight: 300;
+}
